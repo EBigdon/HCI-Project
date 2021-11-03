@@ -16,14 +16,18 @@ def list_ports():
             if is_reading:
                 ports.append(dev_port)
         dev_port +=1
-    cv2.waitKey(1)
-    print(f"Found {len(ports)} camera-drivers.\n Please select your driver:\n {ports}.")
-    selected = int(input())
-    for i in ports:
-        if selected == i:
-            return selected
-        else:
-            return "ERROR! Could not match input with available Driver"
+    cv2.waitKey(2)
+    if len(ports) == 1:
+        print(f"Found 1 camera-driver. Camera-driver {ports[0]} gets selected.")
+        return ports[0]
+    else:
+        print(f"Found {len(ports)} camera-drivers.\n Please select your driver:\n {ports}.")
+        selected = int(input())
+        for i in ports:
+            if selected == i:
+                return selected
+            else:
+                return "ERROR! Could not match input with available Driver"
 
 
 def get_right_camera(list_of_drivers): #Zeige alle Bilder und frag ab ob richtig
