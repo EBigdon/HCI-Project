@@ -79,7 +79,7 @@ def getLiveData(csvname, label_list):
     Mbox('Hinweis', 'Oben Links wird die zu zeigende Geste gezeigt. Per Leertaste werden die Aufzeichnungen begonnen.', 0)
 
 
-    picturesToTake = 1000
+    picturesToTake = 10
     handList = ['Rechts ', 'Links ']
     cv2.waitKey(1)
     selectedDriver = list_ports()
@@ -142,3 +142,7 @@ def getLiveData(csvname, label_list):
                         csv_writer.writerow(tuple(row))
 
             cv2.destroyAllWindows()
+
+LABEL_LIST = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+CSV_NAME = 'DataBCPI.csv'
+getLiveData(CSV_NAME, LABEL_LIST)
